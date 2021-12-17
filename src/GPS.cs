@@ -7,10 +7,13 @@ public class GPS : MonoBehaviour
 {
     public Text gpsOut;
     public bool isUpdating;
+    RectTransform compas;
+
     private void Update()
     {
         if (!isUpdating)
         {
+        		compas = GameObject.FindGameObjectWithTag("Compas").GetComponent<RectTransform>();
             StartCoroutine(GetLocation());
             isUpdating = !isUpdating;
         }
@@ -59,6 +62,8 @@ public class GPS : MonoBehaviour
         {
             gpsOut.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude+100f + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
             // Access granted and location value could be retrieved
+           
+    	      compas.transform.Rotate(0.0f, 0.0f, -Input.compass.trueHeading, Space.World);
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
         }
 
