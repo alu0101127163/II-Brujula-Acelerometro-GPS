@@ -7,6 +7,7 @@ Estos son:
 * Brújula
 * Acelerómetro
 * GPS
+
 Como norma general, para la utilización de estos componentes se debe importar el paquete UnityEngine y, haciendo uso del mismo, obtener los datos de los mismos a través de la clase Input. Hay que tener en cuenta que al probarse en el ordenador, muchos de los componentes pueden devolver datos no realistas o directamente no funcionar.
 
 ## Brújula
@@ -21,6 +22,7 @@ Input.location.lastData.
 * Input.location.lastData.latitude
 * Input.location.lastData.longitude
 * Input.location.lastData.altitude
+
 Estos atributos sólo se actualizan una vez realizada la llamada a Input.location.Start() (también usada para obtener datos de la brújula). Esta función tiene dos argumentos opcionales: la precisión deseada y la distancia mínima de actualización (ambas en metros y por defecto 10). Conviene comprobar el valor del atributo Input.location.status, que indica si el servicio está activo (LocationServiceStatus.Running), antes de leer Input.location.lastData.
 Una vez termine de usarse el servicio de localización, debe detenerse con una llamada a la función Input.location.Stop().
 
